@@ -61,8 +61,6 @@ def start_simulator():
 
 
 def main():
-    # print find_project_dir('/Users/dantezhu/work/salebox/salebox/src')
-    # print find_project_dir('/Users/dantezhu/work/salebox/salebox/res')
     start_simulator()
 
 if __name__ == '__main__':
