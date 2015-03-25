@@ -1,0 +1,69 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os
+import platform
+
+SIMULATORS = dict(
+    mac='/Applications/Cocos/cocos-simulator-bin/mac/Simulator.app/Contents/MacOS/Simulator'
+)
+
+PROJECT_FILE = '.cocos-project.json'
+
+
+def find_project_dir(directory):
+    """
+    找到包含 .cocos-project.json 的目录
+    :param directory:
+    :return:
+    """
+
+    if not directory:
+        return None
+
+    try:
+        # 错误的目录会抛异常
+        files = os.listdir(directory)
+    except:
+        return None
+
+    for filename in files:
+        if filename == PROJECT_FILE:
+            return directory
+
+    parent_folder = os.path.dirname(directory)
+
+    if parent_folder != directory:
+        return find_project_dir(parent_folder)
+    else:
+        return None
+
+
+def start_simulator():
+    simulator = None
+    if 'darwin' in platform.system().lower():
+        simulator = SIMULATORS['mac']
+    else:
+        print 'support %s only' % ','.join(SIMULATORS.keys())
+        return
+
+    current_dir = os.getcwd()
+    project_dir = find_project_dir(current_dir)
+
+    if not project_dir:
+        print 'cannot find project_dir in %s' % current_dir
+        return
+
+    cmd = '%s -workdir %s' % (simulator, project_dir)
+    print cmd
+
+    os.system(cmd)
+
+
+def main():
+    # print find_project_dir('/Users/dantezhu/work/salebox/salebox/src')
+    # print find_project_dir('/Users/dantezhu/work/salebox/salebox/res')
+    start_simulator()
+
+if __name__ == '__main__':
+    main()
