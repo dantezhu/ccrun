@@ -3,6 +3,7 @@
 
 import os
 import platform
+import sys
 
 SIMULATORS = dict(
     mac='/Applications/Cocos/cocos-simulator-bin/mac/Simulator.app/Contents/MacOS/Simulator'
@@ -54,7 +55,7 @@ def start_simulator():
         print 'cannot find project_dir in %s' % current_dir
         return
 
-    cmd = '%s -workdir %s' % (simulator, project_dir)
+    cmd = '%s -workdir %s %s' % (simulator, project_dir, ' '.join(sys.argv[1:]))
     print cmd
 
     os.system(cmd)
