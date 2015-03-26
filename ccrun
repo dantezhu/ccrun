@@ -5,9 +5,7 @@ import os
 import platform
 import sys
 
-SIMULATORS = dict(
-    mac='/Applications/Cocos/cocos-simulator-bin/mac/Simulator.app/Contents/MacOS/Simulator'
-)
+SIMULATOR = 'Simulator'
 
 PROJECT_FILE = '.cocos-project.json'
 
@@ -41,13 +39,6 @@ def find_project_dir(directory):
 
 
 def start_simulator():
-    simulator = None
-    if 'darwin' in platform.system().lower():
-        simulator = SIMULATORS['mac']
-    else:
-        print 'support %s only' % ','.join(SIMULATORS.keys())
-        return
-
     current_dir = os.getcwd()
     project_dir = find_project_dir(current_dir)
 
@@ -55,7 +46,7 @@ def start_simulator():
         print 'cannot find project_dir in %s' % current_dir
         return
 
-    cmd = '%s -workdir %s %s' % (simulator, project_dir, ' '.join(sys.argv[1:]))
+    cmd = '%s -workdir %s %s' % (SIMULATOR, project_dir, ' '.join(sys.argv[1:]))
     print cmd
 
     os.system(cmd)
