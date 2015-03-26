@@ -9,4 +9,19 @@
 2. 将 Simulator 添加到系统环境变量，比如mac下
 
     export PATH=/Applications/Cocos/cocos-simulator-bin/mac/Simulator.app/Contents/MacOS/:$PATH
-2. ok了
+
+#### 参数说明
+
+支持透传参数如下:
+
+    -workdir "PATH"
+    -script "FILENAME"
+    -package.path "PATH;PATH"
+    -writable "PATH"
+    -size 960x640
+    -scale 1.0
+    -console, -disable-console
+    -load-framework, -disable-load-framework
+    -write-debug-log, -disable-write-debug-log
+    -offset {0,0}
+    -debugger-ldt, -debugger-codeide, -disable-debugger
