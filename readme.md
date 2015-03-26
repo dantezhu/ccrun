@@ -14,14 +14,14 @@
 
 支持透传参数如下:
 
-    -workdir "PATH"
-    -script "FILENAME"
-    -package.path "PATH;PATH"
-    -writable "PATH"
-    -size 960x640
+    -workdir "path"
+    -entry "filename"
+    -writable-path "path"
+    -resolution 960x640
     -scale 1.0
-    -console, -disable-console
-    -load-framework, -disable-load-framework
-    -write-debug-log, -disable-write-debug-log
-    -offset {0,0}
-    -debugger-ldt, -debugger-codeide, -disable-debugger
+    -console enable/disable
+    -write-debug-log "log_path"
+    -position 0,0
+    -debugger codeide/studio
+    -search-path "path;path"
+    -listen "bind_address"
