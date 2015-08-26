@@ -6,7 +6,7 @@ import sys
 
 SIMULATOR = 'Simulator'
 
-PROJECT_FILE = '.cocos-project.json'
+PROJECT_FILE = 'config.json'
 
 
 def find_project_dir(directory):
