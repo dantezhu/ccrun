@@ -19,9 +19,10 @@
     -writable-path "path"
     -resolution 960x640
     -scale 1.0
-    -console enable/disable
+    -console enable/disable 如果disable, 日志会打印到标准输出，所以可以通过输出重定向打印到文件里面去的。无论是windows还是mac。
     -write-debug-log "log_path"
     -position 0,0
     -debugger codeide/studio
     -search-path "path;path"
     -listen "bind_address"
+
